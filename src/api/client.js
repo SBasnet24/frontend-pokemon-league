@@ -11,13 +11,11 @@ const get = (url, params = {}, includeToken = true) => {
 
   const requestParams = {
     ...params,
-    accessToken: "",
   };
 
   if (includeToken) {
     const token = getAccessToken();
     headers.Authorization = `Bearer ${token}`;
-    requestParams.accessToken = token;
   }
 
   const fullUrl = `${API_URL}/${url}`;
